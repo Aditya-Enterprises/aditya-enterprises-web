@@ -4,6 +4,7 @@ import aeLogo from "../assets/ae-logo.png";
 
 export function Header() {
   const [activeSection, setActiveSection] = useState(navLinks[0].id);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const sections = navLinks
@@ -64,14 +65,54 @@ export function Header() {
             ))}
           </nav>
         </div>
-        <div className="">
-          <a
-            className="text-sm rounded-lg bg-primary-action px-6 py-2.5 font-title-sm text-white transition-all duration-200 hover:bg-hover-state active:scale-95"
-            href="#contact"
+        <button
+          aria-controls="mobile-navigation"
+          aria-expanded={isMenuOpen}
+          aria-label={
+            isMenuOpen ? "Close navigation menu" : "Open navigation menu"
+          }
+          className="ml-auto inline-flex h-10 w-10 items-center justify-center rounded-lg border border-blue-100 text-blue-900 transition-colors hover:bg-blue-50 md:hidden"
+          onClick={() => setIsMenuOpen((isOpen) => !isOpen)}
+          type="button"
+        >
+          <span className="material-symbols-outlined text-2xl">
+            {isMenuOpen ? "close" : "menu"}
+          </span>
+        </button>
+        <a
+          className="hidden rounded-lg bg-primary-action px-6 py-2.5 font-title-sm text-white transition-all duration-200 hover:bg-hover-state active:scale-95"
+          href="#contact"
+        >
+          Schedule Visit
+        </a>
+        {isMenuOpen && (
+          <nav
+            className="absolute top-full right-0 left-0 mt-2 rounded-lg border border-blue-100 bg-white p-2 shadow-[0_16px_40px_rgb(3,4,94,0.12)] md:hidden"
+            id="mobile-navigation"
           >
-            Schedule Visit
-          </a>
-        </div>
+            {navLinks.map((link) => (
+              <a
+                className={
+                  activeSection === link.id
+                    ? "block rounded-md bg-blue-50 px-4 py-3 font-body-base font-semibold text-blue-700"
+                    : "block rounded-md px-4 py-3 font-body-base text-slate-700 transition-colors hover:bg-blue-50 hover:text-blue-700"
+                }
+                href={link.href}
+                key={link.label}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {link.label}
+              </a>
+            ))}
+            <a
+              className="mt-2 block rounded-lg bg-primary-action px-4 py-3 text-center font-title-sm text-white transition-all duration-200 hover:bg-hover-state active:scale-95"
+              href="#contact"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Schedule Visit
+            </a>
+          </nav>
+        )}
       </div>
     </header>
   );
