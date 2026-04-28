@@ -93,7 +93,7 @@ export const services = [
 
 export const stats = [
   { value: "25+", label: "Years Experience" },
-  { value: "100+", label: "Properties Sold" },
+  { value: "500+", label: "Properties Sold" },
   { value: "1000+", label: "Customers Served" },
   { value: "98%", label: "Client Satisfaction" },
 ];
