@@ -41,7 +41,7 @@ export function Header() {
             alt="Aditya Estate Consultants"
           />
           <a
-            className="whitespace-nowrap text-lg font-bold tracking-tight text-blue-900 md:block md:text-xl xl:text-2xl"
+            className="text-sm whitespace-nowrap font-bold tracking-tight text-blue-900 md:block md:text-xl xl:text-2xl"
             href="#home"
           >
             Aditya Estate Consultants
@@ -66,7 +66,7 @@ export function Header() {
         </div>
         <div className="">
           <a
-            className="rounded-lg bg-primary-action px-6 py-2.5 font-title-sm text-white transition-all duration-200 hover:bg-hover-state active:scale-95"
+            className="text-sm rounded-lg bg-primary-action px-6 py-2.5 font-title-sm text-white transition-all duration-200 hover:bg-hover-state active:scale-95"
             href="#contact"
           >
             Schedule Visit
