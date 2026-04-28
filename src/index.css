@@ -125,11 +125,3 @@ input {
     "GRAD" 0,
     "opsz" 24;
 }
-
-.login-gradient {
-  background: radial-gradient(circle at top left, #caf0f8 0%, #fbf8ff 40%, #ffffff 100%);
-}
-
-.card-shadow {
-  box-shadow: 0 10px 40px -10px rgba(3, 4, 94, 0.08);
-}
